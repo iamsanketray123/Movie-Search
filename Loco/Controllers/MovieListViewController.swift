@@ -127,8 +127,13 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        movieCellViewModel?.callApiService(for: searchText, shouldFetchNextPage: true)
+        
+        if let totalRows = movieCellViewModel?.numberOrRows(),
+           indexPath.row == totalRows - 3 {
+            
+            // Fetch Next Page
+            movieCellViewModel?.callApiService(for: searchText, shouldFetchNextPage: true)
+        }
     }
 }
 

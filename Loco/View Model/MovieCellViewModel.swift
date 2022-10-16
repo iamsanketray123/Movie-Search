@@ -26,7 +26,7 @@ class MovieCellViewModel {
     public func callApiService(for searchQuery: String, shouldFetchNextPage: Bool = false) {
         
         // Already Have Max Results
-        if movies.count == totalResults { return }
+        if totalResults > 0, movies.count == totalResults { return }
         
         if shouldFetchNextPage { page += 1 }
         
