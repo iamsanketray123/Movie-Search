@@ -52,7 +52,7 @@ class MovieDetailsViewController: BaseViewController {
         
         // Validation & Create URL
         guard let movie = movie,
-              let url = URL(string: "https://www.omdbapi.com/?i=\(movie.imdbId)&apikey=17c5b420&plot=full") else { return }
+              let url = URL(string: "https://www.omdbapi.com/?i=\(movie.imdbId)&apikey=17c5b420") else { return }
         
         // Show Loader
         showLoader()

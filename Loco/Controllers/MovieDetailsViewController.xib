@@ -30,19 +30,19 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="763"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3YI-4W-dC8">
-                                    <rect key="frame" x="12" y="0.0" width="366" height="280"/>
+                                    <rect key="frame" x="12" y="0.0" width="366" height="240"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pWl-Dx-mbg">
-                                            <rect key="frame" x="83" y="0.0" width="200" height="280"/>
+                                            <rect key="frame" x="93" y="0.0" width="180" height="240"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="200" id="ABd-Xf-nnD"/>
-                                                <constraint firstAttribute="height" constant="280" id="Edf-oa-mST"/>
+                                                <constraint firstAttribute="width" constant="180" id="ABd-Xf-nnD"/>
+                                                <constraint firstAttribute="height" constant="240" id="Edf-oa-mST"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Hnz-vT-atD">
-                                    <rect key="frame" x="12" y="300" width="366" height="439"/>
+                                    <rect key="frame" x="12" y="260" width="366" height="479"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="c4d-IG-tCi">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="28"/>
