@@ -49,11 +49,11 @@ class MovieCellViewModel {
         closure?(response)
     }
 
-    func numberOrRows() -> Int {
+    public func numberOrRows() -> Int {
         return movies.count
     }
 
-    func getMovie(index: Int) -> Movie {
+    public func getMovie(index: Int) -> Movie {
         return movies[index]
     }
 }
