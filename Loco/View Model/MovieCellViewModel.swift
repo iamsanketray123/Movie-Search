@@ -38,7 +38,8 @@ class MovieCellViewModel {
         if shouldFetchNextPage { page += 1 }
         
         // Create URL
-        guard let url = URL(string: "https://www.omdbapi.com/?s=\(searchQuery)&apikey=17c5b420&page=\(page)") else { return }
+        guard let query = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string: "https://www.omdbapi.com/?s=\(query))&apikey=17c5b420&page=\(page)") else { return }
         
         // Get Data From API Service
         APIService.getData(requestUrl: url, resultType: MovieResponse.self) { [weak self] (response, error) in
