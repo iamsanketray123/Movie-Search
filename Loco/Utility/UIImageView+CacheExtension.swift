@@ -58,7 +58,7 @@ extension UIImageView {
                     
                     // Set Default Image
                     self.image = UIImage(named: "noImage")
-                }   
+                }
             }
         }
     }

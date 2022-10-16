@@ -12,7 +12,7 @@ import Foundation
 struct MovieResponse: Decodable {
     let movies: [Movie]
     let totalResults: String
-
+    
     enum CodingKeys: String, CodingKey {
         case movies = "Search"
         case totalResults
@@ -39,7 +39,7 @@ struct Movie: Decodable {
         let plot: String
         let director: String
         let imdbRating: String
-
+        
         enum CodingKeys: String, CodingKey {
             case released = "Released"
             case plot = "Plot"

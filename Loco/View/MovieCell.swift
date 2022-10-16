@@ -8,7 +8,7 @@
 import UIKit
 
 final class MovieCell: UITableViewCell {
-
+    
     
     // MARK: - Outlets
     @IBOutlet private var posterImageView: UIImageView!

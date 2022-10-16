@@ -21,7 +21,7 @@ class MovieListViewController: BaseViewController {
         didSet {
             
             // Fetch Data To Display In Table View
-            movieCellViewModel?.closure = { [weak self] (response) in
+            movieCellViewModel?.closure = { [weak self] (response, error) in
                 
                 DispatchQueue.main.async {
                     
@@ -129,10 +129,11 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if let totalRows = movieCellViewModel?.numberOrRows(),
-           indexPath.row == totalRows - 3 {
+           indexPath.row == totalRows - 3,
+           let searchQuery = movieCellViewModel?.searchQuery {
             
             // Fetch Next Page
-            movieCellViewModel?.callApiService(for: searchText, shouldFetchNextPage: true)
+            movieCellViewModel?.callApiService(for: searchQuery, shouldFetchNextPage: true)
         }
     }
 }

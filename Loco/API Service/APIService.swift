@@ -9,7 +9,7 @@ import Foundation
 
 struct APIService {
     
-    public static func getData<T: Decodable>(requestUrl: URL, resultType: T.Type, completionHandler: @escaping(_ result: T) -> Void) {
+    public static func getData<T: Decodable>(requestUrl: URL, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: Error?) -> Void) {
         
         URLSession.shared.dataTask(with: requestUrl) { (responseData, httpUrlResponse, error) in
             
@@ -21,10 +21,10 @@ struct APIService {
                 // Parse Response
                 do {
                     let result = try JSONDecoder().decode(resultType, from: responseData!)
-                    completionHandler(result)
+                    completionHandler(result, nil)
                 }
                 catch let error {
-                    debugPrint("error occured while decoding = \(error.localizedDescription)")
+                    completionHandler(nil, error)
                 }
             }
         }.resume()
