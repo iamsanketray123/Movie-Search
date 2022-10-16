@@ -17,6 +17,7 @@ class MovieCellViewModel {
     private var page = 1
     public private(set) var searchQuery = String()
     
+    
     // MARK: - Lifecycle Methods
     init(_ searchQuery: String) {
         
@@ -27,6 +28,8 @@ class MovieCellViewModel {
         callApiService(for: searchQuery)
     }
     
+    
+    // MARK: - Helper Methods
     public func callApiService(for searchQuery: String, shouldFetchNextPage: Bool = false) {
         
         // Already Have Max Results

@@ -67,7 +67,7 @@ class MovieDetailsViewController: BaseViewController {
                 // Hide Loader
                 self?.hideLoader()
                 
-            } else if let error = error {
+            } else if let _ = error {
                 
                 // Hide Loader
                 self?.hideLoader()

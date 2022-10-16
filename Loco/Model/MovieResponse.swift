@@ -32,8 +32,6 @@ struct Movie: Decodable {
         case posterImageUrlString = "Poster"
     }
     
-    
-    // MARK: - Details
     struct Details: Codable {
         let released: String
         let plot: String
