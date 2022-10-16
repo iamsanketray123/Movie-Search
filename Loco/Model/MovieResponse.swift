@@ -11,9 +11,11 @@ import Foundation
 // MARK: - MovieResponse
 struct MovieResponse: Decodable {
     let movies: [Movie]
+    let totalResults: String
 
     enum CodingKeys: String, CodingKey {
         case movies = "Search"
+        case totalResults
     }
 }
 
