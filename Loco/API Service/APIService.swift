@@ -14,24 +14,34 @@ struct APIService {
     ///   - requestUrl: URL endpoint to fetch data from
     ///   - resultType: This will be the type of object we expect after JSON parsing
     ///   - completionHandler: Callback with Result & Error
-    public static func getData<T: Decodable>(requestUrl: URL, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: Error?) -> Void) {
+    public static func getData<T: Decodable>(requestUrl: URL, resultType: T.Type, completionHandler: @escaping (Result<T>) -> Void) {
         
-        URLSession.shared.dataTask(with: requestUrl) { (responseData, httpUrlResponse, error) in
+        URLSession.shared.dataTask(with: requestUrl) { (data, response, error) in
             
-            // Validations
-            if error == nil,
-               responseData != nil,
-               responseData?.count != 0 {
+            // Error Validation Check
+            guard error == nil else {
                 
-                // Parse Response
-                do {
-                    let result = try JSONDecoder().decode(resultType, from: responseData!)
-                    completionHandler(result, nil)
-                }
-                catch let error {
-                    completionHandler(nil, error)
-                }
+                completionHandler(.failure(.requestError))
+                return
             }
+            
+            guard let data = data else {
+                
+                completionHandler(.failure(.noData))
+                return
+            }
+            
+            do {
+                    
+                // Parse Response
+                let result = try JSONDecoder().decode(resultType, from: data)
+                completionHandler(.success(result))
+                
+            } catch {
+                
+                completionHandler(.failure(.parsingFailed))
+            }
+            
         }.resume()
     }
     
@@ -43,27 +53,27 @@ struct APIService {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             
-            if let error = error {
+            guard error == nil else {
                 
-                // Call Completion Block
-                completionHandler(.failure(error))
+                completionHandler(.failure(.requestError))
                 return
             }
             
-            guard let data = data, error == nil else {
+            guard let data = data else {
+                
+                completionHandler(.failure(.noData))
                 return
             }
             
-            // Call Completion Block
             completionHandler(.success(data))
             
         }.resume()
     }
     
-    // Result enum is a generic for any type of value with success and failure case
-    public enum Result<T> {
-        case success(T)
-        case failure(Error)
-    }
 }
 
+// Result enum is a generic for any type of value with success and failure case
+public enum Result<T> {
+    case success(T)
+    case failure(APIError)
+}

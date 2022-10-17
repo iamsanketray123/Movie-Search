@@ -21,4 +21,22 @@ class BaseViewController: UIViewController {
     func hideLoader() {
         Loader.shared.hide()
     }
+    
+    func handleError(_ error: APIError) {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            // Create Alert
+            let alertController = UIAlertController(title: "Oops!", message: error.description, preferredStyle: .alert)
+            
+            // Create Action
+            let okAction = UIAlertAction(title: "Okay", style: .default)
+            
+            // Add Action To Alert
+            alertController.addAction(okAction)
+            
+            // Present Alert Controller
+            self?.present(alertController, animated: true)
+        }
+    }
 }

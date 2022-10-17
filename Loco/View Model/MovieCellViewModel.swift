@@ -11,7 +11,7 @@ class MovieCellViewModel {
     
     
     // MARK: - Variables
-    public var closure: ((MovieResponse?, Error?) -> Void)?
+    public var closure: ((MovieResponse?, APIError?) -> Void)?
     private var movies = [Movie]()
     private var totalResults = Int()
     private var page = 1
@@ -45,23 +45,25 @@ class MovieCellViewModel {
               let url = URL(string: "https://www.omdbapi.com/?s=\(query))&apikey=17c5b420&page=\(page)") else { return }
         
         // Get Data From API Service
-        APIService.getData(requestUrl: url, resultType: MovieResponse.self) { [weak self] (response, error) in
+        APIService.getData(requestUrl: url, resultType: MovieResponse.self) { [weak self] (result) in
             
             // Validation
             guard let self = self else { return }
             
-            if let response = response {
+            switch result {
                 
+            case .success(let response):
                 self.totalResults = Int(response.totalResults) ?? 0
                 self.movies.append(contentsOf: response.movies)
                 self.handleResponse(response: response, error: nil)
-            } else if let error = error {
+                
+            case .failure(let error):
                 self.handleResponse(response: nil, error: error)
             }
         }
     }
     
-    private func handleResponse(response: MovieResponse?, error: Error?) {
+    private func handleResponse(response: MovieResponse?, error: APIError?) {
         closure?(response, error)
     }
     

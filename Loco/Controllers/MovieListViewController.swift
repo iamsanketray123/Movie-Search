@@ -31,6 +31,12 @@ class MovieListViewController: BaseViewController {
                     // Hide Loader
                     self?.hideLoader()
                 }
+                
+                // Handle Error If Not Nil
+                if let error = error {
+                        
+                    self?.handleError(error)
+                }
             }
         }
     }

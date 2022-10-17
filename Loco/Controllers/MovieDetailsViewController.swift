@@ -59,20 +59,24 @@ class MovieDetailsViewController: BaseViewController {
         showLoader()
         
         // Get Movie Details
-        APIService.getData(requestUrl: url, resultType: Movie.Details.self) { [weak self] (result, error) in
+        APIService.getData(requestUrl: url, resultType: Movie.Details.self) { [weak self] (result) in
             
-            if let result = result {
+            switch result {
+            case .success(let response):
                 
                 // Set Movie Details
-                self?.movie?.details = result
+                self?.movie?.details = response
                 
                 // Hide Loader
                 self?.hideLoader()
                 
-            } else if let _ = error {
+            case .failure(let error):
                 
                 // Hide Loader
                 self?.hideLoader()
+                
+                // Handle Erorr Message
+                self?.handleError(error)
             }
         }
     }

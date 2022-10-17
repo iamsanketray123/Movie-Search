@@ -34,7 +34,7 @@ extension UIImageView {
         }
         
         // Proceed With Download
-        APIService.downloadData(url: url) { [weak self] result in
+        APIService.downloadData(url: url) { [weak self] (result) in
             
             // Validation
             guard let self = self else { return }
