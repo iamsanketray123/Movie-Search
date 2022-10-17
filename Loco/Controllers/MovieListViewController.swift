@@ -61,7 +61,6 @@ class MovieListViewController: BaseViewController {
         
         // Setup Search Bar
         searchBar.delegate = self
-        searchBar.returnKeyType = .done
         searchBar.backgroundImage = UIImage()
         
         // Disable Search Button Initially
