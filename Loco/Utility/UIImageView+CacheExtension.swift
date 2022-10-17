@@ -15,7 +15,8 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 // MARK: - UIImageView extension
 extension UIImageView {
     
-    // This method will load the image for the image view; either by fetching from Cache or by making an API call
+    /// This method will load the image for the image view; either by fetching from Cache or by making an API call
+    /// - Parameter urlSting: This will be converted to an URL and then image will be fetched for the URL
     func loadImage(urlSting: String) {
         
         // Validation
@@ -33,7 +34,7 @@ extension UIImageView {
         }
         
         // Proceed With Download
-        APIService.downloadImage(url: url) { [weak self] result in
+        APIService.downloadData(url: url) { [weak self] result in
             
             // Validation
             guard let self = self else { return }

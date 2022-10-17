@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// The base class for all View Controllers
 class BaseViewController: UIViewController {
     
     override func viewDidLoad() {

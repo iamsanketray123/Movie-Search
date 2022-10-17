@@ -30,11 +30,14 @@ class MovieCellViewModel {
     
     
     // MARK: - Helper Methods
+    /// The API call to fetch movies
+    /// - Parameter shouldFetchNextPage: If this is passed in as `true` then we will be fetching the next page.
     public func callApiService(shouldFetchNextPage: Bool = false) {
         
         // Already Have Max Results
         if totalResults > 0, movies.count == totalResults { return }
         
+        // Increment Page
         if shouldFetchNextPage { page += 1 }
         
         // Create URL

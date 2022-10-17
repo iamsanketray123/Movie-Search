@@ -123,8 +123,13 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         return 180
     }
     
+    /// Will Display Cell delegate method is called to keep track of indexPath that will be displayed. Using this method we can have our custom logic to prefetch data for the next set of results.
+    /// - Parameters:
+    ///   - tableView: This is our table view defined by the outlet
+    ///   - indexPath: This is the index path that will be displayed
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
+        // Logic to fetch next set of movies
         if let totalRows = movieCellViewModel?.numberOrRows(),
            indexPath.row == totalRows - 3 {
             

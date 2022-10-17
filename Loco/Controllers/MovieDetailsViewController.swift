@@ -48,6 +48,7 @@ class MovieDetailsViewController: BaseViewController {
     
     
     // MARK: - Helper Methods
+    /// This method fetches the details of the movie object passed to us during initialization
     private func fetchMovieDetails() {
         
         // Validation & Create URL
@@ -76,6 +77,7 @@ class MovieDetailsViewController: BaseViewController {
         }
     }
     
+    /// This method takes care of updating the UI, once the movie object is updated
     private func updateUI() {
         
         DispatchQueue.main.async { [weak self] in
