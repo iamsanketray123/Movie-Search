@@ -126,11 +126,10 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if let totalRows = movieCellViewModel?.numberOrRows(),
-           indexPath.row == totalRows - 3,
-           let searchQuery = movieCellViewModel?.searchQuery {
+           indexPath.row == totalRows - 3 {
             
             // Fetch Next Page
-            movieCellViewModel?.callApiService(for: searchQuery, shouldFetchNextPage: true)
+            movieCellViewModel?.callApiService(shouldFetchNextPage: true)
         }
     }
 }

@@ -15,7 +15,7 @@ class MovieCellViewModel {
     private var movies = [Movie]()
     private var totalResults = Int()
     private var page = 1
-    public private(set) var searchQuery = String()
+    private var searchQuery = String()
     
     
     // MARK: - Lifecycle Methods
@@ -25,12 +25,12 @@ class MovieCellViewModel {
         self.searchQuery = searchQuery
         
         // Make API Call For Query
-        callApiService(for: searchQuery)
+        callApiService()
     }
     
     
     // MARK: - Helper Methods
-    public func callApiService(for searchQuery: String, shouldFetchNextPage: Bool = false) {
+    public func callApiService(shouldFetchNextPage: Bool = false) {
         
         // Already Have Max Results
         if totalResults > 0, movies.count == totalResults { return }

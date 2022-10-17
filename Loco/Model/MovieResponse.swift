@@ -19,6 +19,7 @@ struct MovieResponse: Decodable {
     }
 }
 
+
 // MARK: - Movie
 struct Movie: Decodable {
     let title, year, imdbId: String
