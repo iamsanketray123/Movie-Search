@@ -32,7 +32,7 @@ struct Movie: Decodable {
         case posterImageUrlString = "Poster"
     }
     
-    struct Details: Codable {
+    struct Details: Decodable {
         let released: String
         let plot: String
         let director: String

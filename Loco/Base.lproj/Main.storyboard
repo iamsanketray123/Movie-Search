@@ -17,20 +17,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rif-h7-483">
-                                <rect key="frame" x="12" y="91" width="366" height="58.333333333333343"/>
+                                <rect key="frame" x="0.0" y="143" width="390" height="58.333333333333343"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" placeholder="Interstellar, Dune, etc..." translatesAutoresizingMaskIntoConstraints="NO" id="j8b-eM-1db">
-                                        <rect key="frame" x="0.0" y="0.0" width="262" height="58.333333333333336"/>
+                                        <rect key="frame" x="4" y="0.0" width="262" height="58.333333333333336"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="ryV-ao-zm8"/>
                                         </connections>
                                     </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VUC-fw-QgK">
-                                        <rect key="frame" x="262" y="0.0" width="104" height="58.333333333333336"/>
+                                        <rect key="frame" x="266" y="0.0" width="112" height="58.333333333333336"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpF-SN-ngG">
-                                                <rect key="frame" x="0.0" y="12" width="104" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="12" width="112" height="34.333333333333336"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="1T7-da-m6N"/>
                                                 </constraints>
@@ -44,9 +44,10 @@
                                         <edgeInsets key="layoutMargins" top="12" left="0.0" bottom="12" right="0.0"/>
                                     </stackView>
                                 </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="4" bottom="0.0" right="12"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-As-khr">
-                                <rect key="frame" x="0.0" y="149.33333333333331" width="390" height="660.66666666666674"/>
+                                <rect key="frame" x="0.0" y="201.33333333333331" width="390" height="608.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -54,10 +55,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ULz-As-khr" firstAttribute="top" secondItem="rif-h7-483" secondAttribute="bottom" id="AdG-xh-zsV"/>
-                            <constraint firstItem="rif-h7-483" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="CRX-IV-w6u"/>
+                            <constraint firstItem="rif-h7-483" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CRX-IV-w6u"/>
                             <constraint firstItem="rif-h7-483" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CcQ-PV-Mh6"/>
                             <constraint firstItem="ULz-As-khr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GEC-Iw-08c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rif-h7-483" secondAttribute="trailing" constant="12" id="KyK-x9-XrC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rif-h7-483" secondAttribute="trailing" id="KyK-x9-XrC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ULz-As-khr" secondAttribute="bottom" id="XK7-8G-0nY"/>
                             <constraint firstItem="ULz-As-khr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u3g-ea-KoF"/>
                         </constraints>
@@ -78,8 +79,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bB0-tY-v2z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bl8-by-j2d">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Bl8-by-j2d">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

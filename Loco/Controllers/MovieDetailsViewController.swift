@@ -57,6 +57,7 @@ class MovieDetailsViewController: BaseViewController {
         // Show Loader
         showLoader()
         
+        // Get Movie Details
         APIService.getData(requestUrl: url, resultType: Movie.Details.self) { [weak self] (result, error) in
             
             if let result = result {
@@ -77,13 +78,11 @@ class MovieDetailsViewController: BaseViewController {
     
     private func updateUI() {
         
-        // Validation
-        guard let movie = movie else { return }
-        
         DispatchQueue.main.async { [weak self] in
             
             // Validation
-            guard let self = self else { return }
+            guard let self = self,
+                  let movie = self.movie else { return }
             
             // Load Image
             self.posterImageView.loadImage(urlSting: movie.posterImageUrlString)

@@ -59,9 +59,6 @@ class MovieListViewController: BaseViewController {
         // Set Navigation Title
         title = "Movies"
         
-        // Setup Navigation Controller
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         // Setup Search Bar
         searchBar.delegate = self
         searchBar.backgroundImage = UIImage()

@@ -16,15 +16,6 @@ final class MovieCell: UITableViewCell {
     
     
     // MARK: - Lifecycle Methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        // Initialization code
-        selectionStyle = .none
-        accessoryType = .disclosureIndicator
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -37,7 +28,6 @@ final class MovieCell: UITableViewCell {
         super.layoutSubviews()
         
         posterImageView.layer.cornerRadius = 4
-        posterImageView.clipsToBounds = true
         posterImageView.layer.cornerCurve = .continuous
     }
     
