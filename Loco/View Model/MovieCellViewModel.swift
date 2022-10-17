@@ -11,7 +11,7 @@ class MovieCellViewModel {
     
     
     // MARK: - Variables
-    public var closure: ((MovieResponse?, APIError?) -> Void)?
+    public var closure: ((Result<MovieResponse>) -> Void)?
     private var movies = [Movie]()
     private var totalResults = Int()
     private var page = 1
@@ -55,16 +55,12 @@ class MovieCellViewModel {
             case .success(let response):
                 self.totalResults = Int(response.totalResults) ?? 0
                 self.movies.append(contentsOf: response.movies)
-                self.handleResponse(response: response, error: nil)
+                self.closure?(.success(response))
                 
             case .failure(let error):
-                self.handleResponse(response: nil, error: error)
+                self.closure?(.failure(error))
             }
         }
-    }
-    
-    private func handleResponse(response: MovieResponse?, error: APIError?) {
-        closure?(response, error)
     }
     
     public func numberOrRows() -> Int {

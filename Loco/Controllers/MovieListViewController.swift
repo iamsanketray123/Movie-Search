@@ -21,21 +21,25 @@ class MovieListViewController: BaseViewController {
         didSet {
             
             // Fetch Data To Display In Table View
-            movieCellViewModel?.closure = { [weak self] (response, error) in
+            movieCellViewModel?.closure = { [weak self] (result) in
                 
-                DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
                     
-                    // Reload Table View
-                    self?.tableView.reloadData()
-                    
-                    // Hide Loader
-                    self?.hideLoader()
-                }
-                
-                // Handle Error If Not Nil
-                if let error = error {
-                        
+                    // Display Erorr Message
                     self?.handleError(error)
+                    fallthrough
+                    
+                case .success(_):
+                    
+                    DispatchQueue.main.async {
+                        
+                        // Reload Table View
+                        self?.tableView.reloadData()
+                        
+                        // Hide Loader
+                        self?.hideLoader()
+                    }
                 }
             }
         }
