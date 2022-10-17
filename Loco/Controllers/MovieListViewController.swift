@@ -61,6 +61,7 @@ class MovieListViewController: BaseViewController {
         
         // Setup Search Bar
         searchBar.delegate = self
+        searchBar.returnKeyType = .done
         searchBar.backgroundImage = UIImage()
         
         // Disable Search Button Initially
@@ -140,5 +141,9 @@ extension MovieListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
