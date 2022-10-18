@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieListViewController: BaseViewController {
+final class MovieListViewController: BaseViewController {
     
     
     // MARK: - Outlets

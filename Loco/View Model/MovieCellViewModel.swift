@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MovieCellViewModel {
+final class MovieCellViewModel {
     
     
     // MARK: - Variables
