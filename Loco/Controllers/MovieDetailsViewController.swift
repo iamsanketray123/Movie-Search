@@ -91,7 +91,7 @@ class MovieDetailsViewController: BaseViewController {
                   let movie = self.movie else { return }
             
             // Load Image
-            self.posterImageView.loadImage(urlSting: movie.posterImageUrlString)
+            self.posterImageView.loadImage(urlString: movie.posterImageUrlString)
             
             // Set Title
             self.titleLabel.text = movie.title

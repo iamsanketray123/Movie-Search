@@ -36,7 +36,7 @@ final class MovieCell: UITableViewCell {
     public func setMovieData(movie: Movie) {
         
         // Set Details
-        posterImageView.loadImage(urlSting: movie.posterImageUrlString)
+        posterImageView.loadImage(urlString: movie.posterImageUrlString)
         titleLabel.text = movie.title
     }
     
