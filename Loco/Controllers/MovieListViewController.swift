@@ -151,7 +151,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
 extension MovieListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchText = searchText
+        self.searchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
